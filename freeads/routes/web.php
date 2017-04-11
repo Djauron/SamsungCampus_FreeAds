@@ -15,8 +15,10 @@
 //    return view('welcome');
 //});
 
-Route::get('/index', 'IndexController@showIndex');
+Route::get('/', 'IndexController@showIndex');
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+
+Route::resource('users', 'UsersController');

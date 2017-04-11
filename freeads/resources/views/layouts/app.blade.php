@@ -72,6 +72,9 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="{{ route('users.index') }}" class="btn">Index</a>
+                            </li>
                         @endif
                     </ul>
                 </div>
