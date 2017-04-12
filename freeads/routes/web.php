@@ -22,3 +22,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('users', 'UsersController');
+
+
+Route::resource('annonces', 'AnnoncesController');
+
+Route::get('/annonces/{id}/destroy','AnnoncesController@destroy');
