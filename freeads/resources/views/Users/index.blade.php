@@ -16,10 +16,6 @@
             <i class="fa fa-rocket" aria-hidden="true"></i> Voir profile
         </a>
 
-        <a href="{{ route('annonces.index') }}" class="btn btn-default Add-friend">
-            <i class="fa fa-rocket" aria-hidden="true"></i> Index Annonces
-        </a>
-
     </div>
 
 

@@ -35,7 +35,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/annonces') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
@@ -73,7 +73,10 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{ route('users.index') }}" class="btn">Index</a>
+                                <a href="{{ route('users.index') }}" class="btn">Index User</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('annonces.index') }}" class="btn">Index Annonces</a>
                             </li>
                         @endif
                     </ul>

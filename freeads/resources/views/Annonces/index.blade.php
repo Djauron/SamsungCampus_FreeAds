@@ -4,24 +4,40 @@
 
 @section('content')
 
+<div class="container">
+    <div class="row col-md-12">
 
-<div class="row">
+        {!! Form::open(['method' => 'post','route' => ['annonces.index']]) !!}
 
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+        {!! Form::text('search', null, array('placeholder' => 'Rechercher une annonce','class' => 'control')) !!}
+        {!! Form::number('search', null, array('placeholder' => 'Prix','class' => 'control')) !!}
+        <button type="submit" class="btn btn-default">Submit</button>
 
-        @foreach ($annonces as $annonce)
-        <p>Titre : {{ $annonce->title }}</p>
-        <p>Content : {{ $annonce->content }}</p>
-        <p>Price : {{ $annonce->price }}$</p>
-        <p>Created : {{ $annonce->created_at }}</p>
-        <a href="{{ route('annonces.show', ['id' => $annonce->id]) }}" class="btn btn-default Add-friend">
-            <i class="fa fa-rocket" aria-hidden="true"></i> Voir l'annonce
-        </a>
-        @endforeach
+        {!! Form::close() !!}
 
+        <table class="table table-striped custab">
+            <thead>
+            <tr>
+                <th>Annonces</th>
+            </tr>
+            </thead>
+            @foreach ($annonces as $annonce)
+            <tr>
+                <td>
+                    <a href="{{ route('annonces.show', ['id' => $annonce->id]) }}" class="btn btn-default Add-friend">
+                        <i class="fa fa-rocket" aria-hidden="true"></i> View
+                    </a>
+                </td>
+                <td>Vendor : {{ $annonce->name }}</td>
+                <td>Titre : {{ $annonce->title }}</td>
+                <td>Content : {{ $annonce->content }}</td>
+                <td>Price : {{ $annonce->price }}</td>
+                <td>created : {{ $annonce->created_at }}</td>
+                <td><img style="max-width: 100px;max-height: 100px" src="/images/{{ $annonce->filePath }}" alt=""></td>
+            </tr>
+            @endforeach
+        </table>
     </div>
-
-
 </div>
 
 

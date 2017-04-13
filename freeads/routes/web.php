@@ -15,15 +15,15 @@
 //    return view('welcome');
 //});
 
-Route::get('/', 'IndexController@showIndex');
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
 
 Route::resource('users', 'UsersController');
 
 
 Route::resource('annonces', 'AnnoncesController');
+Route::post('/annonces', 'AnnoncesController@index')->name('annonces.index');
 
 Route::get('/annonces/{id}/destroy','AnnoncesController@destroy');

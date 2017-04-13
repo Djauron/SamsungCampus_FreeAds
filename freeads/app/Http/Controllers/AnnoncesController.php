@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use App\Repository\AnnonceRepository;
 
 class AnnoncesController extends Controller
 {
@@ -24,9 +25,16 @@ class AnnoncesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $annonces = Annonces::all();
+        if(isset($request->search))
+        {
+            $annonces = AnnonceRepository::findAllAnnoncesLike($request->search);
+        }
+        else
+        {
+            $annonces = AnnonceRepository::findAllAnnonces();
+        }
         return view('Annonces.index', ['annonces' => $annonces]);
     }
 
