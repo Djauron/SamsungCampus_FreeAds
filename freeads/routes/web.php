@@ -22,8 +22,8 @@ Auth::routes();
 
 Route::resource('users', 'UsersController');
 
-
 Route::resource('annonces', 'AnnoncesController');
+Route::post('/annonces/create', 'AnnoncesController@store')->name('annonces.store');
 Route::post('/annonces', 'AnnoncesController@index')->name('annonces.index');
 
 Route::get('/annonces/{id}/destroy','AnnoncesController@destroy');

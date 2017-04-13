@@ -51,6 +51,14 @@
 
         </div>
 
+        <div class="form-group">
+
+            <strong>Categorie :</strong>
+
+            {{ $categorie->name_categorie }}
+
+        </div>
+
         @foreach ($images as $image)
 
         <img style="max-width: 500px;max-height: 500px" src="/images/{{ $image->filePath }}" alt="">

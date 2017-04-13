@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Annonces;
+use App\Categorie;
 use App\Image;
 use App\User;
 use Carbon\Carbon;
@@ -27,15 +28,9 @@ class AnnoncesController extends Controller
      */
     public function index(Request $request)
     {
-        if(isset($request->search))
-        {
-            $annonces = AnnonceRepository::findAllAnnoncesLike($request->search);
-        }
-        else
-        {
-            $annonces = AnnonceRepository::findAllAnnonces();
-        }
-        return view('Annonces.index', ['annonces' => $annonces]);
+        $annonces = AnnonceRepository::findAllAnnoncesLike($request);
+        $categories = Categorie::all();
+        return view('Annonces.index', ['annonces' => $annonces, 'categories' => $categories]);
     }
 
     /**
@@ -45,7 +40,8 @@ class AnnoncesController extends Controller
      */
     public function create()
     {
-        return view('Annonces.create');
+        $categories = Categorie::all();
+        return view('Annonces.create', ['categories' => $categories]);
     }
 
     /**
@@ -60,7 +56,8 @@ class AnnoncesController extends Controller
             'title' => 'required',
             'content' => 'required',
             'price' => 'required',
-            'picture' => 'required'
+            'picture' => 'required',
+            'categorie' => 'required'
         ]);
 
         $annonces = Annonces::create([
@@ -68,6 +65,7 @@ class AnnoncesController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'price' => $request->price,
+            'categorie_id' => $request->categorie,
         ]);
 
         $images = Input::file('picture');
@@ -97,7 +95,8 @@ class AnnoncesController extends Controller
         $annonces = Annonces::find($id);
 
         $images = Image::where('annonce_id', '=' , $annonces->id )->get();
-        return view("Annonces.show", ['annonces' => $annonces , 'images' => $images]);
+        $categorie = Categorie::find($annonces->categorie_id);
+        return view("Annonces.show", ['annonces' => $annonces , 'images' => $images, 'categorie' => $categorie]);
     }
 
     /**

@@ -83,6 +83,22 @@
 
         <div class="form-group">
 
+            <strong> Ajouter une categorie :</strong>
+
+            <select name="cat" class="form-control">
+                @foreach($categories as $categorie)
+                <option value="{{ $categorie->id }}">{{ $categorie->name_categorie }}</option>
+                @endforeach
+            </select>
+
+        </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+
+        <div class="form-group">
+
             <strong> Ajouter une image :</strong>
 
             {!! Form::file('picture[]',array('class' => 'control', 'multiple' => true)) !!}

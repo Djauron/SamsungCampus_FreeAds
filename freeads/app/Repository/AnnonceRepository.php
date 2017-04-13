@@ -12,22 +12,29 @@ Class AnnonceRepository
         $annonces = DB::table('annonces')
             ->join('images', 'annonce_id', '=', 'annonces.id')
             ->join('users', 'users.id', '=', 'annonces.user_id')
-            ->select('annonces.*', 'users.name', 'images.filePath','annonces.id as id')
-            ->where('title', 'like', '%'.$find.'%')
-            ->orderby('created_at','desc')->get();
+            ->join('categories', 'categories.id', '=', 'annonces.categorie_id')
+            ->select('annonces.*', 'categories.name_categorie', 'users.name', 'images.filePath','annonces.id as id');
 
-        return $annonces;
-    }
+            if(isset($find->search))
+            {
+                $annonces->where('annonces.title', 'like', '%'.$find->search.'%');
+            }
+            if(isset($find->price))
+            {
+                $annonces->where('annonces.price', '=', $find->price);
+            }
+            if(isset($find->vendor))
+            {
+                $annonces->where('users.name', 'like', '%'.$find->vendor.'%');
+            }
+            if(isset($find->cat) && $find->cat != 0)
+            {
+                $annonces->where('categories.id', '=', $find->cat);
+            }
 
-    public static function findAllAnnonces()
-    {
-        $annonces = DB::table('annonces')
-            ->join('images', 'annonce_id', '=', 'annonces.id')
-            ->join('users', 'users.id', '=', 'annonces.user_id')
-            ->select('annonces.*', 'users.name', 'images.filePath','annonces.id as id')
-            ->orderby('created_at','desc')->get();
+            $annonces->orderby('created_at','desc');
 
-        return $annonces;
+        return $annonces->get();
     }
 
 
