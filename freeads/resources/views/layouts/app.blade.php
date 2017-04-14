@@ -49,10 +49,17 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
+                        @if(Auth::user()) <li><a href="/messages">Messages @include ('messenger.unread-count')</a></li> @endif
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+                            <li>
+                                <a href="{{ route('annonces.index') }}" class="btn">Index Annonces</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('annonces.create') }}" class="btn">Create Annonces</a>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -65,18 +72,14 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
+                                        <a href="{{ route('users.edit', ['id' => Auth::user()->id]) }}">Edit profile</a>
+                                        <a href="{{ route('users.show', ['id' => Auth::user()->id]) }}">Voir profile</a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="{{ route('users.index') }}" class="btn">Index User</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('annonces.index') }}" class="btn">Index Annonces</a>
                             </li>
                         @endif
                     </ul>

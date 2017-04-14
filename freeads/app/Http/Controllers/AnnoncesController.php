@@ -57,7 +57,7 @@ class AnnoncesController extends Controller
             'content' => 'required',
             'price' => 'required',
             'picture' => 'required',
-            'categorie' => 'required'
+            'cat' => 'required'
         ]);
 
         $annonces = Annonces::create([
@@ -65,7 +65,7 @@ class AnnoncesController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'price' => $request->price,
-            'categorie_id' => $request->categorie,
+            'categorie_id' => $request->cat
         ]);
 
         $images = Input::file('picture');
@@ -93,10 +93,11 @@ class AnnoncesController extends Controller
     public function show(Request $request, $id)
     {
         $annonces = Annonces::find($id);
-
         $images = Image::where('annonce_id', '=' , $annonces->id )->get();
         $categorie = Categorie::find($annonces->categorie_id);
-        return view("Annonces.show", ['annonces' => $annonces , 'images' => $images, 'categorie' => $categorie]);
+        $matchs = AnnonceRepository::findMatch($annonces->categorie_id, $id);
+
+        return view("Annonces.show", ['annonces' => $annonces , 'images' => $images, 'categorie' => $categorie, 'matchs' => $matchs]);
     }
 
     /**

@@ -86,6 +86,7 @@
             <strong> Ajouter une categorie :</strong>
 
             <select name="cat" class="form-control">
+                <option value="0">Choisir une categorie</option>
                 @foreach($categories as $categorie)
                 <option value="{{ $categorie->id }}">{{ $categorie->name_categorie }}</option>
                 @endforeach

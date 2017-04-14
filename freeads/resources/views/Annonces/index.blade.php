@@ -43,7 +43,7 @@
                 <td>Categorie : {{ $annonce->name_categorie }}</td>
                 <td>Price : {{ $annonce->price }}</td>
                 <td>created : {{ $annonce->created_at }}</td>
-                <td><img style="max-width: 100px;max-height: 100px" src="/images/{{ $annonce->filePath }}" alt=""></td>
+                <td><img style="max-width: 100px;max-height: 100px" src="/images/{{ $annonce->filePath }}" alt="image vente"></td>
             </tr>
             @endforeach
         </table>

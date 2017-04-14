@@ -68,9 +68,33 @@
 
     </div>
 
-
-
 </div>
+
+<table class="table table-striped custab">
+    <thead>
+    <tr>
+        <th>Matchs</th>
+    </tr>
+    </thead>
+    @foreach ($matchs as $match)
+    <tr>
+        <td>
+            <a href="{{ route('annonces.show', ['id' => $match->id]) }}" class="btn btn-default Add-friend">
+                <i class="fa fa-rocket" aria-hidden="true"></i> View
+            </a>
+        </td>
+        <td>Vendor : {{ $match->name }}</td>
+        <td>Titre : {{ $match->title }}</td>
+        <td>Content : {{ $match->content }}</td>
+        <td>Categorie : {{ $match->name_categorie }}</td>
+        <td>Price : {{ $match->price }}</td>
+        <td>created : {{ $match->created_at }}</td>
+
+    </tr>
+    @endforeach
+</table>
+
+
 
 
 @endsection

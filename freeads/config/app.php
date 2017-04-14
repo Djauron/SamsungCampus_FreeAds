@@ -164,6 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Cmgmyr\Messenger\MessengerServiceProvider::class,
 
         /*
          * Package Service Providers...

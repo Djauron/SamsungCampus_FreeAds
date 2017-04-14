@@ -37,6 +37,19 @@ Class AnnonceRepository
         return $annonces->get();
     }
 
+    public static function findMatch($categorie,$id)
+    {
+        $annonces = DB::table('annonces')
+            ->join('users', 'users.id', '=', 'annonces.user_id')
+            ->join('categories', 'annonces.categorie_id', '=', 'categories.id')
+            ->select('annonces.*','users.name', 'categories.name_categorie','annonces.id as id')
+            ->where('categorie_id' , '=' , $categorie)
+            ->where('annonces.id' , '!=' , $id)
+            ->orderBy('annonces.created_at', 'desc');
+
+        return $annonces->get();
+    }
+
 
 }
 
