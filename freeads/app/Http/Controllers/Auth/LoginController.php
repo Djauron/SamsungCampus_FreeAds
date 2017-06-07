@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace freeads\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use freeads\Http\Controllers\Controller;
 use Bestmomo\LaravelEmailConfirmation\Traits\AuthenticatesUsers;
 
 

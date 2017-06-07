@@ -174,11 +174,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        freeads\Providers\AppServiceProvider::class,
+        freeads\Providers\AuthServiceProvider::class,
+        // freeads\Providers\BroadcastServiceProvider::class,
+        freeads\Providers\EventServiceProvider::class,
+        freeads\Providers\RouteServiceProvider::class,
 
     ],
 

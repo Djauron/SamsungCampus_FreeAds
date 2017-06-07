@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace freeads\Http\Controllers;
 
-use App\Annonces;
-use App\Categorie;
-use App\Image;
-use App\User;
+use freeads\Annonces;
+use freeads\Categorie;
+use freeads\Image;
+use freeads\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
+use freeads\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use App\Repository\AnnonceRepository;
+use freeads\Repository\AnnonceRepository;
 
 class AnnoncesController extends Controller
 {
@@ -87,7 +87,7 @@ class AnnoncesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Annonces  $annonces
+     * @param  \freeads\Annonces  $annonces
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -103,7 +103,7 @@ class AnnoncesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Annonces  $annonces
+     * @param  \freeads\Annonces  $annonces
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, $id)
@@ -124,7 +124,7 @@ class AnnoncesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Annonces  $annonces
+     * @param  \freeads\Annonces  $annonces
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -168,7 +168,7 @@ class AnnoncesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Annonces  $annonces
+     * @param  \freeads\Annonces  $annonces
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

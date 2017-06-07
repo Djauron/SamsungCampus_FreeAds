@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace freeads\Http\Controllers;
 
-use App\User;
+use freeads\User;
 use Carbon\Carbon;
 use Cmgmyr\Messenger\Models\Message;
 use Cmgmyr\Messenger\Models\Participant;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace freeads\Repository;
 
 use Illuminate\Support\Facades\DB;
 

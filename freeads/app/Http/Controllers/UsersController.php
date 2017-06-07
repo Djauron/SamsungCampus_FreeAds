@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace freeads\Http\Controllers;
 
-use App\User;
+use freeads\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -48,7 +48,7 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \freeads\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -60,7 +60,7 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \freeads\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, $id)
@@ -81,7 +81,7 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \freeads\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -121,7 +121,7 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \freeads\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
